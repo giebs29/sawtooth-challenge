@@ -1,4 +1,10 @@
-var teamList = [];
+
+
+function rollAllActive(team){
+  for (i=0;i<team.dogs.length;i++){
+    team.dogs[i].roll();
+  }
+}
 
 function playerTurn(team){
   var spaces = 0;
@@ -15,11 +21,14 @@ function playerTurn(team){
         firstRoll = false;
       }else {
         if(confirm("Roll again?")){
-          team.biscuts -= 1;
-          rollAllActive(team);
-          showRolls(team);
-          spaces = countMatches(team);
-          console.log("Spaces:",countMatches(team));
+          var dice = prompt('Select dice to roll');
+          if(dice.length > 0){
+            team.biscuts -= 1;
+            rollSelected(dice,team);
+            showRolls(team);
+            spaces = countMatches(team);
+            console.log("Spaces:",countMatches(team));
+          }
         } else {
           rolling = false;
         }
@@ -69,12 +78,19 @@ function rollAllActive(team){
   }
 }
 
+function rollSelected(dice,team){
+  for (i=0;i<dice;i++){
+    team.dogs[i].roll();
+  }
+}
+
 function showRolls(team){
   for(i=0;i<team.dogs.length;i++){
     if (team.dogs[i].active){
       console.log(team.dogs[i].name,team.dogs[i].rollNum);
     }
   }
+  changePic(team);
 }
 
 function countMatches(team){
@@ -102,4 +118,12 @@ function countMatches(team){
     }
   }
   return numMatches;
+}
+
+function changePic(team){
+  for(i=0;i<team.dogs.length;i++){
+    var tempID = team.dogs[i].name;
+    tempPath = "images/red"+team.dogs[i].rollNum+".png";
+    var dice = document.getElementById(tempID).src = tempPath;
+  }
 }

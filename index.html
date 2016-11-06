@@ -1,13 +1,52 @@
 <html>
   <head>
-    <script src="team_management.js"></script>
-    <script src="action.js"></script>
-    <script src="course.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/dashboardStyle.css">
+    <link rel="stylesheet" type="text/css" href="styles/modalStyle.css">
+    <link rel="stylesheet" type="text/css" href="styles/mapStyle.css">
+    <link rel="stylesheet" type="text/css" href="styles/windowStyle.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="scripts/teamCreator.js"></script>
+    <script src="scripts/setupLoop.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Sawtooth 150</title>
   </head>
   <body>
-    <div>
-      <h1 id="teamPosition"></h1>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Race Registration</h4>
+          </div>
+          <div class="modal-body">
+            <table id="musherTable" class="table">
+              <thead>
+                <tr>
+                  <th>Musher Name</th>
+                  <th>Color</th>
+                </tr>
+              </thead>
+              <tbody>
+                <td><input id="musherName" type="text" style="width:100%;"/></td>
+                <td><input id="musherColor" type="color" style="width:100%;height:100%;"/></td>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button id="addTeam" type="button" class="btn btn-primary">Add Team</button>
+            <button id="startRace" type="button" class="btn btn-success" data-dismiss="modal">Race!</button>
+          </div>
+        </div>
+
+      </div>
     </div>
   </body>
 </html>

@@ -1,3 +1,5 @@
+var teamList = [];
+
 function createTeam(teamName,teamColor){
   //Create basic team
   var team = {
@@ -24,11 +26,5 @@ function createTeam(teamName,teamColor){
 function diceRoll(){
   if (this.active){
     this.rollNum = Math.floor(Math.random() * 6) + 1;
-  }
-}
-
-function rollAllActive(team){
-  for (i=0;i<team.dogs.length;i++){
-    team.dogs[i].roll();
   }
 }
